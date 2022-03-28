@@ -20,10 +20,16 @@ const Header = () => {
     <div className="shadow-md border-b bg-white sticky top-0 z-50">
       <div className="flex justify-between items-center max-w-7xl mx-5 xl:mx-auto">
         {/* left */}
-        <div className="w-24 h-24 relative hidden lg:inline-grid cursor-pointer">
+        <div
+          className="w-24 h-24 relative hidden lg:inline-grid cursor-pointer"
+          onClick={() => router.push("/")}
+        >
           <Image src="/logo-main-black.svg" layout="fill" objectFit="contain" />
         </div>
-        <div className=" h-24 w-24 relative lg:hidden flex-shrink-0 cursor-pointer">
+        <div
+          className=" h-24 w-24 relative lg:hidden flex-shrink-0 cursor-pointer "
+          onClick={() => router.push("/")}
+        >
           <Image src="/logo-type-black.svg" layout="fill" objectFit="contain" />
         </div>
         {/* midddle */}

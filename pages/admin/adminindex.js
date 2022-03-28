@@ -1,4 +1,3 @@
-
 import { useRef, useState } from "react";
 import { CameraIcon } from "@heroicons/react/outline";
 import { db, storage } from "../../firebase";
@@ -9,13 +8,13 @@ import {
   serverTimestamp,
   updateDoc,
 } from "@firebase/firestore";
-// import { useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import { ref, getDownloadURL, uploadString } from "@firebase/storage";
 import Image from "next/image";
 import { useRouter } from "next/router";
 
 export default function AdminIndex() {
-  // const { data: session } = useSession();
+  const { data: session } = useSession();
   const filePickerRef = useRef(null);
   const captionRef = useRef(null);
   const prefecRef = useRef(null);
@@ -31,7 +30,6 @@ export default function AdminIndex() {
   const [selectedFile, setSelectedFile] = useState(null);
   const router = useRouter();
 
-
   // firebase post!!!
   const uploadPost = async () => {
     if (loading) return;
@@ -44,8 +42,8 @@ export default function AdminIndex() {
     // 4)get a download URL from fb storage and update to the original post with image
 
     const docRef = await addDoc(collection(db, "posts"), {
-      // username: session.user.username,
-      // accountName: session.user.name,
+      username: session.user.username,
+      accountName: session.user.name,
       caption: captionRef.current.value,
       prefectures: prefecRef.current.value,
       place: placeRef.current.value,
@@ -54,14 +52,12 @@ export default function AdminIndex() {
       shopEmail: emailRef.current.value,
       shopTel: telRef.current.value,
       shopHomepage: homepageRef.current.value,
-      // profileImg: session.user.image,
+      profileImg: session.user.image,
       coordinates: {
-        latitude:Number(latRef.current.value),
-        longitude:Number(lngRef.current.value),
-      }
-        ,
+        latitude: Number(latRef.current.value),
+        longitude: Number(lngRef.current.value),
+      },
       timestamp: serverTimestamp(),
-
     });
     // await addDoc(collection(db, "posts"), {
     //   coordinates: lesserGeopoint(latRef.current.value, lngRef.current.value)
@@ -80,7 +76,6 @@ export default function AdminIndex() {
       }
     );
   };
-
 
   const addImageToPost = (e) => {
     const reader = new FileReader();
@@ -260,4 +255,3 @@ export default function AdminIndex() {
     </div>
   );
 }
-

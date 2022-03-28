@@ -17,7 +17,7 @@ export default function Home() {
       <Header />
       {/* <HeroImage/> */}
       {/* Feed */}
-      <Flyers/>
+      <Flyers />
       {/* modal */}
     </div>
   );

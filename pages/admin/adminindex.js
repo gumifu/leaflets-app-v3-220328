@@ -1,6 +1,4 @@
-import { useRecoilState } from "recoil";
-import { Dialog, Transition } from "@headlessui/react";
-import { Fragment, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { CameraIcon } from "@heroicons/react/outline";
 import { db, storage } from "../../firebase";
 import {

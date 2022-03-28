@@ -1,5 +1,4 @@
 import { getProviders, signIn as SignIntoProvider } from "next-auth/react";
-import Header from "../../components/Header";
 
 export default function AdminSignIn({ providers }) {
   return (

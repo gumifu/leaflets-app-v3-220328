@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 const MiniProfile = () => {
   return (
@@ -19,7 +19,7 @@ const MiniProfile = () => {
         サインアウト
       </button> */}
     </div>
-  )
-}
+  );
+};
 
-export default MiniProfile
+export default MiniProfile;

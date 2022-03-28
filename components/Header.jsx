@@ -8,11 +8,12 @@ import {
   MenuIcon,
 } from "@heroicons/react/outline";
 import { HomeIcon } from "@heroicons/react/solid";
-// import { useSession, signIn, signOut } from "next-auth/react";
+import { useSession, signIn, signOut } from "next-auth/react";
 import { useRouter } from "next/router";
 
 const Header = () => {
-  // const { data: session } = useSession();
+  const { data: session } = useSession();
+  console.log(session);
   //   const [open, setOpen] = useRecoilState(modalState);
   const router = useRouter();
   return (
@@ -35,37 +36,38 @@ const Header = () => {
             placeholder="検索"
             className="flex-grow w-full transparent h-14 bg-gray-50 block pl-10 sm:text-sm border-gray-500 shadow-sm focus:border-black focus:ring focus:ring-black focus:ring-opacity-50 rounded-full"
           />
-          {/* className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" /> */}
         </div>
         {/* right */}
         <div className="flex items-center mr-5 justify-end space-x-4">
           <HomeIcon onClick={() => router.push("/")} className="navBtn" />
           <MenuIcon className="h-6 md:hidden cursor-pointer " />
 
-          {/* {session ? (
-            <> */}
-          <div className="relative navBtn">
-            <PaperAirplaneIcon className="navBtn rotate-45 " />
-            <div className=" absolute -top-2 -right-1 text-xs w-5 h-5 bg-red-500 rounded-full flex justify-center items-center animate-pulse text-white">
-              3
-            </div>
-          </div>
-          <PlusCircleIcon onClick={() => setOpen(true)} className="navBtn " />
-          <UserGroupIcon className="navBtn " />
-          <HeartIcon className="navBtn " />
-          {/* <UserCircleIcon className='navBtn text-gray-300' /> */}
-          {/* <img
+          {session ? (
+            <>
+              <div className="relative navBtn">
+                <PaperAirplaneIcon className="navBtn rotate-45 " />
+                <div className=" absolute -top-2 -right-1 text-xs w-5 h-5 bg-red-500 rounded-full flex justify-center items-center animate-pulse text-white">
+                  3
+                </div>
+              </div>
+              <PlusCircleIcon
+                onClick={() => setOpen(true)}
+                className="navBtn "
+              />
+              <UserGroupIcon className="navBtn " />
+              <HeartIcon className="navBtn " />
+              <img
                 onClick={signOut}
                 src={session.user.image}
                 alt="profile pic"
                 className="h-10 w-10 object-cover rounded-full cursor-pointer"
-              /> */}
-          {/* </>
-          ) : ( */}
-          {/* <button className="text-blue-400 text-lg" onClick={signIn}>
+              />
+            </>
+          ) : (
+            <button className="text-blue-400 text-lg" onClick={signIn}>
               サインイン
             </button>
-          )} */}
+          )}
         </div>
       </div>
     </div>

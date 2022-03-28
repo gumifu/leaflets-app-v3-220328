@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { faker } from "@faker-js/faker";
 
 const Suggestions = () => {
-    const [suggestions, setSuggestions] = useState([]);
+  const [suggestions, setSuggestions] = useState([]);
 
   // faker
   useEffect(() => {
@@ -42,7 +42,7 @@ const Suggestions = () => {
         </div>
       ))}
     </div>
-  )
-}
+  );
+};
 
-export default Suggestions
+export default Suggestions;

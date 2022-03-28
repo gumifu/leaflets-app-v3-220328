@@ -15,13 +15,13 @@ const Post = ({ id, img, caption, prefectures, placeInfo, shopName }) => {
       {/* </Nextlink> */}
       {/* buttons */}
       {/* caption */}
-          <p className="px-10 py-5 truncate ">
-          {prefectures}
-          {placeInfo}
-          </p>
+      <p className="px-10 py-5 truncate ">
+        {prefectures}
+        {placeInfo}
+      </p>
       <p className="px-10 py-5 truncate font-bold">
         <span>{caption}</span>
-          </p>
+      </p>
     </div>
   );
 };
